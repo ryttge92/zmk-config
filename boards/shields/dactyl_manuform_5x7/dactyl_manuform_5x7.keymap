@@ -20,7 +20,7 @@
               &kp LCMD        &kp A         &kp S         &kp D         &kp F         &kp G         &kp LEFT_BRACE            &kp RIGHT_BRACE    &kp H         &kp J         &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
               &kp LALT        &kp Z         &kp X         &kp C         &kp V         &kp B                                                      &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
                                             &kp DELETE    &kp LALT                                                                                                           &kp LBKT      &kp RBKT
-                &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5 &kp NUMBER_6                             &kp Q         &kp W         &kp E         &kp R         &kp T     &kp Y 
+              &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6                            &kp Q              &kp W         &kp E         &kp R         &kp T         &kp Y 
             >;
         };
     };
