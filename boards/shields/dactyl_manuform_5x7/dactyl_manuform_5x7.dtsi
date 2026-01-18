@@ -31,7 +31,8 @@
     dactyl_manuform_5x7_layout: dactyl_manuform_5x7_layout {
         compatible = "zmk,physical-layout";
         display-name = "dactyl_manuform_5x7";
-        
+
+        kscan = <&kscan0>;
         transform = <&default_transform>;
 
         keys  //                     w   h    x    y     rot    rx    ry
