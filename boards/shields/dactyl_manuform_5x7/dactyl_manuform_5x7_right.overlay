@@ -60,4 +60,3 @@
             <&zip_xy_to_scroll_mapper>;
         };
     };
-};
