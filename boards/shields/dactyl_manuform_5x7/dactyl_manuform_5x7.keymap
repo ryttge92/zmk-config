@@ -14,21 +14,46 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "base";
             bindings = <
-              &bootloader     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp LESS_THAN               &kp GREATER_THAN   &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &bootloader
-              &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T         &kp LEFT_BRACKET            &kp RIGHT_BRACKET  &kp Y         &kp U         &kp I         &kp O         &kp P          &kp EQUAL
-              &studio_unlock  &kp A         &kp S         &kp D         &kp F         &kp G         &kp LEFT_BRACE              &kp RIGHT_BRACE    &kp H         &kp J         &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
-              &bt BT_CLR      &kp Z         &kp X         &kp C         &kp V         &kp B         &kp A                       &kp B              &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
-              &kp DELETE      &kp LALT      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5 &kp NUMBER_6   &kp Q              &kp W         &kp E         &kp R         &kp T         &kp LBKT      &kp RBKT
+              &kp ESC               &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL                   &kp GRAVE          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &kp MINUS
+              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp U         &kp I         &kp O         &kp P          &kp EQUAL
+              &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp HOME                    &kp END            &kp H         &kp J         &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
+              &bt LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &bootloader                 &bootloader        &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
+              &kp NON_US_BACKSLASH  &kp RBKT      &kp SPACE     &kp MB1       &to 1         &to 2         &kp LALT   &kp LGUI         &kp SCRL_DOWN      &kp SCRL_UP   &kp MB2       &kp BACKSPACE &kp ENTER     &kp LBT_CLR    &kp &studio_unlock
             
             >;
         };
-    extra1 {
-            status = "reserved";
-        };
 
-    extra2 {
-            status = "reserved";
+        mouse_layer {
+            display-name = "mouse";
+            bindings = <
+              &kp ESC               &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL                   &kp GRAVE          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &kp MINUS
+              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp HOME      &kp END       &kp PAGE_UP   &kp P          &kp EQUAL
+              &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp HOME                    &kp END            &kp H         &mkp MB1      &mkp MB2      &kp PAGE_DOWN &kp SEMICOLON  &kp SINGLE_QUOTE
+              &bt LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &bootloader                 &bootloader        &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
+              &kp NON_US_BACKSLASH  &kp RBKT      &kp SPACE     &mkp MB1      &to 0         &to 2         &kp LALT   &kp LGUI         &msc SCRL_DOWN     &msc SCRL_UP  &mkp MB2      &kp BACKSPACE &kp ENTER     &kp LBT_CLR    &kp &studio_unlock
+            
+            >;
         };
+        
+        function_layer {
+            display-name = "func";
+            bindings = <
+              &bootloader           &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL                   &kp GRAVE          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &bootloader
+              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp U         &kp I         &kp O         &kp P          &kp EQUAL
+              &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp HOME                    &kp END            &kp H         &kp J         &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
+              &bt LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &bootloader                 &bootloader        &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
+              &kp NON_US_BACKSLASH  &kp RBKT      &kp SPACE     &kp MB1       &to 1         &to 2         &kp LALT   &kp LGUI         &kp SCRL_DOWN      &kp SCRL_UP   &kp MB2       &kp BACKSPACE &kp ENTER     &kp LBT_CLR    &kp &studio_unlock
+            
+            >;
+        };
+        extra1 {
+                status = "reserved";
+            };
+
+        extra2 {
+                status = "reserved";
+            };
     };
 };
