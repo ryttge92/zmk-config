@@ -50,7 +50,7 @@
               &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp U         &kp I         &kp O         &kp P          &kp EQUAL
               &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp HOME                    &kp END            &kp H         &kp J         &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
               &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &bootloader                 &bootloader        &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
-              &kp NON_US_BACKSLASH  &kp RBKT      &kp SPACE     &mkp MB1      &to 1         &to 2         &kp LALT   &kp LGUI         &msc SCRL_DOWN     &msc SCRL_UP  &mkp MB2      &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
+              &kp NON_US_BACKSLASH  &kp RBKT      &kp SPACE     &mkp MB1      &to 1         &to 0         &kp LALT   &kp LGUI         &msc SCRL_DOWN     &msc SCRL_UP  &mkp MB2      &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
             
             >;
         };
