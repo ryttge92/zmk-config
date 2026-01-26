@@ -6,10 +6,8 @@ manifest:
       url-base: https://github.com/badjeff/
     - name: efogdev
       url-base: https://github.com/efogdev
-    - name: nuovotaka
-      url-base: https://github.com/nuovotaka
-    - name: caksoylar
-      url-base: https://github.com/caksoylar
+    #- name: nuovotaka
+    #  url-base: https://github.com/nuovotaka
 
   projects:
     - name: zmk
@@ -22,12 +20,9 @@ manifest:
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
       revision: main
-    - name: zmk-pointing-acceleration-alpha
-      remote: nuovotaka
-      revision: main
-    - name: zmk-rgbled-widget
-      remote: caksoylar
-      revision: main
+   # - name: zmk-pointing-acceleration-alpha
+   #   remote: nuovotaka
+   #   revision: main
 
   self:
     path: config
