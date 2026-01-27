@@ -34,7 +34,7 @@
             display-name = "mouse";
             bindings = <
               &kp ESC               &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL                   &kp GRAVE          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &kp MINUS
-              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp HOME      &kp END       &kp PAGE_UP   &kp P          &kp LBKTL
+              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp HOME      &kp END       &kp PAGE_UP   &kp P          &kp LBKT
               &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp HOME                    &kp END            &kp H         &mkp MB1      &mkp MB2      &kp PAGE_DOWN &kp SEMICOLON  &kp SINGLE_QUOTE
               &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &bootloader                 &bootloader        &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
               &kp NON_US_BACKSLASH  &kp RBKT      &kp SPACE     &mkp MB1      &to 0         &to 2         &kp LALT   &kp LGUI         &msc SCRL_DOWN     &msc SCRL_UP  &mkp MB2      &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
