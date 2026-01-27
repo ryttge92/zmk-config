@@ -15,19 +15,20 @@ manifest:
       #revision: main
       revision: v0.3-branch
       import: app/west.yml
-    - name: zmk-pmw3610-driver
-      remote: efogdev
+    #- name: zmk-pmw3610-driver
+    #  remote: efogdev
       #revision: zephyr-4.1
-      revision: main
+    #  revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
       revision: main
     - name: zmk-pointing-acceleration-alpha
       remote: nuovotaka
       revision: main
-   # - name: zmk-pmw3610-driver
-   #   remote: badjeff
-   #   revision: zmk-0.4
+    - name: zmk-pmw3610-driver
+      remote: badjeff
+      #revision: zmk-0.4
+      revision: zmk-0.3
 
   self:
     path: config
