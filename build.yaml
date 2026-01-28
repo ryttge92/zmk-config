@@ -27,3 +27,6 @@ include:
     #snippet: zmk-usb-logging studio-rpc-usb-uart
     #snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+
+  - board: nice_nano # Replace with the Pro Micro-compatible board you're using
+    shield: tester_pro_micro
