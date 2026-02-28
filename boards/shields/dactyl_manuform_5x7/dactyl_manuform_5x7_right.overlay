@@ -8,7 +8,7 @@
 &pointer_accel { // this needs to be put BEFORE input-listener
     input-type = <INPUT_EV_REL>;
     codes = <INPUT_REL_X INPUT_REL_Y>;
-    sensitivity = <1300>;         // 0.8x base sensitivity
+    sensitivity = <1500>;         // 0.8x base sensitivity
     min-factor = <800>;			  // 0.8x minimum for percision
     max-factor = <3000>;          // 3.0x maximum acceleration
     acceleration-exponent = <1>;  // Advanced exponential curve (1-5)
