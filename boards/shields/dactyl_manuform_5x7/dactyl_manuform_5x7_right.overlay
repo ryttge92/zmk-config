@@ -59,7 +59,7 @@
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
 
         scroll {
-            layers = <3>; // scroll_layer
+            layers = <2>; // scroll_layer
             input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 1 16>,
