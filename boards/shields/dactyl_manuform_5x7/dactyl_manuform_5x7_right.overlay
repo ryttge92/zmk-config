@@ -8,11 +8,11 @@
 &pointer_accel { // this needs to be put BEFORE input-listener
     input-type = <INPUT_EV_REL>;
     codes = <INPUT_REL_X INPUT_REL_Y>;
-    sensitivity = <1500>;         // 0.8x base sensitivity
+    sensitivity = <1500>;         // 1.5x base sensitivity
     min-factor = <800>;			  // 0.8x minimum for percision
     max-factor = <3000>;          // 3.0x maximum acceleration
-    acceleration-exponent = <1>;  // Advanced exponential curve (1-5)
-    y-boost = <1500>;             // 1.0x Y-axis boost for widescreen
+    acceleration-exponent = <2>;  // Advanced exponential curve (1-5)
+    y-boost = <1500>;             // 1.5x Y-axis boost for widescreen
     speed-threshold = <900>;      // Start acceleration at 900 counts/sec, just 1.5 inch/sec
     speed-max = <1800>;           // Max acceleration at 1800 counts/sec, just 3 inch/sec
     min-factor = <1000>;          // 1.0x minimum (no deceleration)
@@ -47,7 +47,7 @@
             <&gpio1 11 GPIO_ACTIVE_HIGH>,
             <&gpio0 10 GPIO_ACTIVE_HIGH>,
             <&gpio0  9 GPIO_ACTIVE_HIGH>;
-    };
+};
 
     trackball_listener { // listener for input device
         compatible = "zmk,input-listener";
@@ -55,7 +55,8 @@
         input-processors =
             <&pointer_accel>,
             //<&zip_ble_report_rate_limit 8>, // from badjeff's https://github.com/badjeff/zmk-input-processor-report-rate-limit/blob/main/dts/input/processors/report_rate_limit.dtsi
-            <&zip_temp_layer 1 2000>,
+            <&zip_temp_layer 1 1500>,
+            require-prior-idle-ms = <500>;
             <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
 
         scroll {
