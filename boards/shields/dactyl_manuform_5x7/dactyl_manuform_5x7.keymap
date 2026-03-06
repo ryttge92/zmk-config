@@ -20,6 +20,7 @@
         compatible = "zmk,behavior-macro";
         label = "COMP1";
         #binding-cells = <0>;
+        wait-ms = <100>;
         bindings =
             <&out OUT_USB>,
             <&kp F15>
@@ -30,6 +31,7 @@
         compatible = "zmk,behavior-macro";
         label = "COMP2";
         #binding-cells = <0>;
+        wait-ms = <100>;
         bindings =
             <&out OUT_USB>,
             <&kp F16>,
@@ -52,7 +54,7 @@
             
             >;
         };
-1
+        
         mouse_layer {
             display-name = "mouse";
             bindings = <
