@@ -15,35 +15,6 @@
 #define DEFAULT 0
 
 / {
-
-
-    behaviors {
-        comp1: comp1 {
-        compatible = "zmk,behavior-macro";
-        label = "COMP1";
-        #binding-cells = <0>;
-        bindings = <
-            &out OUT_USB
-            &kp F15
-        >;
-        };
-
-        comp2: comp2 {
-        compatible = "zmk,behavior-macro";
-        label = "COMP2";
-        #binding-cells = <0>;
-        bindings = <
-            &out OUT_USB
-            &kp F16
-            &out OUT_BLE
-            &bt BT_SEL 2
-        >;
-        };
-    
-    };
-
-
-
     keymap {
         compatible = "zmk,keymap";
 
