@@ -98,7 +98,7 @@
               &trans                &trans        &trans        &trans        &trans        &trans        &trans                      &trans             &trans        &trans        &trans        &trans        &trans         &trans
               &trans                &trans        &trans        &trans        &trans        &trans        &studio_unlock              &studio_unlock     &trans        &trans        &trans        &trans        &trans         &trans
               &trans                &trans        &trans        &trans        &trans        &trans        &bootloader                 &bootloader        &trans        &trans        &trans        &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans        &trans     &trans           &trans             &trans        &trans        &trans        &tran         &out OUT_BLE   &out OUT_USB
+              &trans                &trans        &trans        &trans        &trans        &trans        &trans     &trans           &trans             &trans        &trans        &trans        &trans        &out OUT_BLE   &out OUT_USB
             >;
         };
         extra1 {
