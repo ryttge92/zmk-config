@@ -50,43 +50,55 @@
               &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp INSERT                  &kp LG(R)           &kp Y               &kp U              &kp I         &kp O         &kp P          &kp LBKT
               &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp CAPS                    &kp LC(LA(DEL))     &kp H               &kp J              &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
               &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RALT                    &kp PSCRN           &kp N               &kp M              &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
-              &kp NON_US_BACKSLASH  &kp RBKT      &to 1         &kp SPACE     &to 0         &to 3         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))   &kp LC(BACKSPACE)  &kp BACKSPACE &kp ENTER     &kp DEL        &studio_unlock
+              &kp NON_US_BACKSLASH  &kp RBKT      &to 3         &kp SPACE     &to 0         &to 4         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))   &kp LC(BACKSPACE)  &kp BACKSPACE &kp ENTER     &kp DEL        &studio_unlock
             
             >;
         };
-        
+
         mouse_layer {
             display-name = "mouse";
             bindings = <
-              &kp ESC               &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F11                     &kp F12             &kp F6             &kp F7        &kp F8        &kp F9        &kp F10        &kp MINUS
-              &kp TAB               &kp Q         &kp W         &kp UP        &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP         &kp Y              &kp HOME      &kp END       &kp PAGE_UP   &kp P          &kp LBKT
-              &kp LSHIFT            &kp A         &kp LEFT      &kp DOWN      &kp RIGHT     &kp G         &kp CAPS                    &kp END             &to 2              &mkp MB1      &mkp MB2      &kp PAGE_DOWN &kp SEMICOLON  &kp SINGLE_QUOTE
-              &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RALT                    &bootloader         &mkp MB5           &mkp MB4      &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
-              &kp NON_US_BACKSLASH  &kp RBKT      &to 1         &kp SPACE     &to 0         &to 3         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))  &mkp MB2      &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
+              &kp ESC               &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL                   &kp GRAVE           &kp NUMBER_6        &kp NUMBER_7      &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &kp MINUS
+              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp LG(R)           &kp Y               &kp U             &kp I         &kp O         &kp P          &kp LBKT
+              &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp CAPS                    &kp LC(LA(DEL))     &to 2               &mkp MB1           &mkp MB2      &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
+              &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RALT                    &bootloader         &mkp MB5            &mkp MB4           &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
+              &kp NON_US_BACKSLASH  &kp RBKT      &to 3         &kp SPACE     &to 0         &to 4         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))   &mkp MB2           &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
             
             >;
         };
 
         scroll_layer {
-            display-name = "mouse";
+            display-name = "scroll";
             bindings = <
-              &kp ESC               &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F11                     &kp F12             &kp F6             &kp F7        &kp F8        &kp F9        &kp F10        &kp MINUS
-              &kp TAB               &kp LEFT      &kp UP        &kp DOWN      &kp RIGHT     &kp T         &kp PAGE_DOWN               &kp PAGE_UP         &kp Y              &kp HOME      &kp END       &kp PAGE_UP   &kp P          &kp LBKT
-              &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp CAPS                    &kp END             &to 1              &mkp MB1      &mkp MB2      &kp PAGE_DOWN &kp SEMICOLON  &kp SINGLE_QUOTE
-              &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RALT                    &bootloader         &mkp MB5           &mkp MB4      &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
-              &kp NON_US_BACKSLASH  &kp RBKT      &to 1         &kp SPACE     &to 0         &to 3         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))  &mkp MB2      &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
+              &kp ESC               &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL                   &kp GRAVE           &kp NUMBER_6       &kp NUMBER_7       &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &kp MINUS
+              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp LG(R)           &kp Y              &kp U              &kp I         &kp O         &kp P          &kp LBKT
+              &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp CAPS                    &kp LC(LA(DEL))     &to 1              &mkp MB1           &mkp MB2      &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
+              &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RALT                    &bootloader         &mkp MB5           &mkp MB4           &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
+              &kp NON_US_BACKSLASH  &kp RBKT      &to 3         &kp SPACE     &to 0         &to 4         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))  &mkp MB2           &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
             
             >;
         };
         
+        navigation_layer {
+            display-name = "navigation";
+            bindings = <
+              &kp ESC               &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F11                     &kp F12             &kp F6             &kp F7        &kp F8        &kp F9        &kp F10        &kp MINUS
+              &kp TAB               &kp Q         &kp W         &kp UP        &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP         &kp Y              &kp HOME      &kp END       &kp PAGE_UP   &kp P          &kp LBKT
+              &kp LSHIFT            &kp A         &kp LEFT      &kp DOWN      &kp RIGHT     &kp G         &kp CAPS                    &kp END             &to 2              &mkp MB1      &mkp MB2      &kp PAGE_DOWN &kp SEMICOLON  &kp SINGLE_QUOTE
+              &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RALT                    &bootloader         &mkp MB5           &mkp MB4      &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
+              &kp NON_US_BACKSLASH  &kp RBKT      &to 3         &kp SPACE     &to 0         &to 4         &kp LALT   &kp LGUI         &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))  &mkp MB2      &kp BACKSPACE &kp ENTER     &bt BT_CLR     &studio_unlock
+            
+            >;
+        };
+
         function_layer {
             display-name = "func";
             bindings = <
-              &bootloader           &kp F13       &kp F14       &comp1        &comp2       &kp NUMBER_5  &kp EQUAL                   &kp GRAVE          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &bootloader
+              &bootloader           &kp F13       &kp F14       &comp1        &comp2       &kp NUMBER_5  &kp EQUAL                    &kp GRAVE          &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0   &bootloader
               &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp PAGE_DOWN               &kp PAGE_UP        &kp Y         &kp U         &kp I         &kp O         &kp P          &kp LBKT
               &kp LSHIFT            &kp A         &kp S         &kp D         &kp F         &kp G         &kp HOME                    &kp END            &kp H         &kp J         &kp K         &kp L         &kp SEMICOLON  &kp SINGLE_QUOTE
               &kp LCTRL             &kp Z         &kp X         &kp C         &kp V         &kp B         &bootloader                 &bootloader        &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp SLASH      &kp BACKSLASH
-              &kp NON_US_BACKSLASH  &kp RBKT      &to 1         &kp SPACE     &to 0         &to 3         &kp LALT   &kp LGUI         &bt BT_CLR         &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &out OUT_BLE   &out OUT_USB
+              &kp NON_US_BACKSLASH  &kp RBKT      &to 3         &kp SPACE     &to 0         &to 4         &kp LALT   &kp LGUI         &bt BT_CLR         &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &out OUT_BLE   &out OUT_USB
             
             >;
         };
