@@ -1,5 +1,7 @@
 #include "dactyl_manuform_5x7.dtsi"
 
+/ {
+
 chosen {
 		zmk,kscan = &kscan0;
 	};
@@ -27,3 +29,5 @@ kscan0: kscan {
         , <&gpio0 20 GPIO_ACTIVE_HIGH>
         ;
 };
+
+}; 
