@@ -1,6 +1,13 @@
 #include "dactyl_manuform_5x7.dtsi"
 
-&kscan0 {
+chosen {
+		zmk,kscan = &kscan0;
+	};
+
+kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
     row-gpios
         = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
