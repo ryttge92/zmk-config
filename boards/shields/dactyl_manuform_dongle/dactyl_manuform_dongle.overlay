@@ -30,7 +30,7 @@
     };
 };
 
-    &trackball_listener { // listener for input device
+    &trackball_split_listener { // listener for input device
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors =
