@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/efogdev
     - name: nuovotaka
       url-base: https://github.com/nuovotaka
+    - name: janpfischer
+      url-base: https://github.com/janpfischer
 
   projects:
     - name: zmk
@@ -29,6 +31,9 @@ manifest:
     # remote: badjeff
       #revision: zmk-0.4
     #  revision: zmk-0.3
-
+    - name: zmk-dongle-screen
+      remote: janpfischer
+      revision: main
+      
   self:
     path: config
