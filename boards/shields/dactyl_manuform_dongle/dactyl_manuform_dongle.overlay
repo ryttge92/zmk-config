@@ -1,5 +1,51 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "dactyl_manuform_5x7.dtsi"
+#include "dactyl_manuform_5x7_layout.dtsi"
+#include <input/processors.dtsi>
+//#include <input/processors/report_rate_limit.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+#include <behaviors/input_gestures_accel.dtsi>
+
+/* https://pointing.streamlit.app/ */
+
+&pointer_accel { // this needs to be put BEFORE input-listener
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    sensitivity = <1500>;         // 1.5x base sensitivity
+    min-factor = <600>;			  // 0.6x minimum for percision
+    max-factor = <4000>;          // 4.0x maximum acceleration
+    acceleration-exponent = <2>;  // Advanced exponential curve (1-5)
+    y-boost = <1500>;             // 1.5x Y-axis boost for widescreen
+    speed-threshold = <900>;      // Start acceleration at 900 counts/sec, just 1.5 inch/sec
+    speed-max = <1800>;           // Max acceleration at 1800 counts/sec, just 3 inch/sec
+  	sensor-dpi = <600>;
+ };
+
+/ {
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <800>;
+    };
+};
+
+    trackball_listener { // listener for input device
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        input-processors =
+            <&pointer_accel>,
+            //<&zip_ble_report_rate_limit 8>, // from badjeff's https://github.com/badjeff/zmk-input-processor-report-rate-limit/blob/main/dts/input/processors/report_rate_limit.dtsi
+            <&zip_temp_layer 1 1500>,
+            <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
+
+        scroll {
+            layers = <2>; // scroll_layer
+            input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_xy_scaler 1 16>,
+            <&zip_xy_to_scroll_mapper>;
+        };
+    };
 
 / {
     chosen {
