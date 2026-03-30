@@ -1,7 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "dactyl_manuform_5x7.dtsi"
-#include "dactyl_manuform_layout.dtsi"
-#include "dactyl_manuform_split_input.dtsi"
+#include "dactyl_manuform_5x7_layout.dtsi"
+#include "dactyl_manuform_5x7_split_input.dtsi"
 #include <input/processors.dtsi>
 //#include <input/processors/report_rate_limit.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
