@@ -32,8 +32,8 @@ include:
   #- board: nice_nano # Replace with the Pro Micro-compatible board you're using
   #  shield: tester_pro_micro
 
+# Dongle
 
-include:
   - board: seeeduino_xiao_ble
     shield: dactyl_manuform_5x7_dongle dongle_screen
     cmake-args: -DCONFIG_ZMK_STUDIO=y
