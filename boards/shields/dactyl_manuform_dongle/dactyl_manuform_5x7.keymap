@@ -159,7 +159,7 @@
               &trans                &trans        &trans        &trans        &trans        &trans        &trans     &trans           &trans              &trans             &trans        &trans           &trans        &trans         &trans
             
             >;
-        }
+        };
 
         extra1 {
                 status = "reserved";
