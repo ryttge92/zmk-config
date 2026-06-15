@@ -2,7 +2,7 @@ if SHIELD_CHARYBDIS_DONGLE
 
 # Max 16 characters in keyboard name
 config ZMK_KEYBOARD_NAME
-    default "Dactyl Manuform"
+    default "Charybdis"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
@@ -28,7 +28,7 @@ endif
 
 if SHIELD_CHARYBDIS_RIGHT
     config ZMK_KEYBOARD_NAME
-        default "Dactyl Manuform"
+        default "Charybdis"
 
     config ZMK_SPLIT
         default y
