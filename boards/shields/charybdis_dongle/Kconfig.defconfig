@@ -1,4 +1,4 @@
-if SHIELD_DACTYL_MANUFORM_5x7_DONGLE
+if SHIELD_CHARYBDIS_DONGLE
 
 # Max 16 characters in keyboard name
 config ZMK_KEYBOARD_NAME
@@ -26,7 +26,7 @@ config BT_MAX_PAIRED
 endif
 
 
-if SHIELD_DACTYL_MANUFORM_5x7_RIGHT
+if SHIELD_CHARYBDIS_RIGHT
     config ZMK_KEYBOARD_NAME
         default "Dactyl Manuform"
 
@@ -34,7 +34,7 @@ if SHIELD_DACTYL_MANUFORM_5x7_RIGHT
         default y
 endif
 
-if SHIELD_DACTYL_MANUFORM_5x7_LEFT || SHIELD_DACTYL_MANUFORM_5x7_RIGHT
+if SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT
     config ZMK_SPLIT
         default y
 endif
