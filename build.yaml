@@ -44,5 +44,21 @@ include:
   - board: nice_nano
     shield: dactyl_manuform_5x7_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  #Charybdis
+
+  - board: seeeduino_xiao_ble
+    shield: charybdis_dongle dongle_screen
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+  - board: nice_nano
+    shield: charybdis_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: nice_nano
+    shield: charybdis_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  #test
+    
   - board: nice_nano
     shield: settings_reset

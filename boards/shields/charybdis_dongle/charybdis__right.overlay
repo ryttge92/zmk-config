@@ -1,0 +1,52 @@
+#include "charybdis.dtsi"
+#include "pmw3610.dtsi"
+#include "charybdis_split_input.dtsi"
+#include <input/processors.dtsi>
+#include <input/processors/report_rate_limit.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+
+
+/* More about input processors: https://zmk.dev/docs/keymaps/input-processors#input-processors-overview */
+
+
+&default_transform {
+    col-offset = <7>;
+};
+
+&spi0 {
+    status = "okay";
+};
+
+&trackball_split_input { // local trackball *split* input device child node
+	device = <&trackball>;
+    input-processors = <&zip_report_rate_limit 16>; // limit to 16ms, default is 16ms
+};
+
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0  17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio1  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio1  6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+
+        col-gpios
+            = <&gpio0 29 GPIO_ACTIVE_HIGH>,
+            <&gpio0  6 GPIO_ACTIVE_HIGH>,
+            <&gpio1 15 GPIO_ACTIVE_HIGH>,
+            <&gpio1 13 GPIO_ACTIVE_HIGH>,
+            <&gpio1 11 GPIO_ACTIVE_HIGH>,
+            <&gpio0 10 GPIO_ACTIVE_HIGH>;
+};
+
+
+};
