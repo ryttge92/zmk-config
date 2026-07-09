@@ -23,13 +23,7 @@
         wait-ms = <100>;
         bindings =
             <&out OUT_USB>,
-            <&macro_press &kp LGUI>,
-            <&macro_press &kp LSHFT>,
-            <&macro_press &kp LCTRL>,
-            <&macro_tap &kp NUMBER_3>,
-            <&macro_release &kp LCTRL>,
-            <&macro_release &kp LSHFT>,
-            <&macro_release &kp LGUI>
+            <&kp F15>
             ;
         };
 
@@ -40,15 +34,9 @@
         wait-ms = <100>;
         bindings =
             <&out OUT_USB>,
-            <&macro_press &kp LGUI>,
-            <&macro_press &kp LSHFT>,
-            <&macro_press &kp LCTRL>,
-            <&macro_tap &kp NUMBER_4>,
-            <&macro_release &kp LCTRL>,
-            <&macro_release &kp LSHFT>,
-            <&macro_release &kp LGUI>,
+            <&kp F16>,
             <&out OUT_BLE>,
-            <&bt BT_SEL 2>
+            <&bt BT_SEL 1>
             ;
         };
 
@@ -59,13 +47,7 @@
         wait-ms = <100>;
         bindings =
             <&out OUT_USB>,
-            <&macro_press &kp LGUI>,
-            <&macro_press &kp LSHFT>,
-            <&macro_press &kp LCTRL>,
-            <&macro_tap &kp NUMBER_1>,
-            <&macro_release &kp LCTRL>,
-            <&macro_release &kp LSHFT>,
-            <&macro_release &kp LGUI>
+            <&kp F13>
             ;
         };
 
@@ -76,13 +58,7 @@
         wait-ms = <100>;
         bindings =
             <&out OUT_USB>,
-            <&macro_press &kp LGUI>,
-            <&macro_press &kp LSHFT>,
-            <&macro_press &kp LCTRL>,
-            <&macro_tap &kp NUMBER_2>,
-            <&macro_release &kp LCTRL>,
-            <&macro_release &kp LSHFT>,
-            <&macro_release &kp LGUI>
+            <&kp F14>
             ;
         }; 
 
