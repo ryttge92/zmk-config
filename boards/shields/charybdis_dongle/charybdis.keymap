@@ -14,6 +14,11 @@
 
 #define DEFAULT 0
 
+    &sl {
+    release-after-ms = <3000>;
+};
+
+
 / {
     macros {
         comp1: comp1 {
@@ -63,10 +68,6 @@
         }; 
 
     };
-
-    &sl {
-    release-after-ms = <3000>;
-};
 
     behaviors {
         my_lt: my_layer_tap {
