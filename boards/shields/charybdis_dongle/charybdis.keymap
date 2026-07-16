@@ -80,7 +80,7 @@
         };
 
         my_lt_kp: my_layer_tap_kp {
-            compatible = "zmk,
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
