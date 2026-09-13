@@ -15,7 +15,7 @@
 #define DEFAULT 0
 
     &sl {
-    release-after-ms = <3000>;
+    release-after-ms = <1000>;
 };
 
 
@@ -83,7 +83,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <100>;
             bindings = <&kp>, <&sl>;
             display-name = "Layer-Tap";
         };
