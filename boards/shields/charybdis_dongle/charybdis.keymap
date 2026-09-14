@@ -14,81 +14,14 @@
 
 #define DEFAULT 0
 
+#include "common_macros.dtsi"
+
     &sl {
     release-after-ms = <1000>;
 };
 
 
 / {
-    macros {
-        comp1: comp1 {
-        compatible = "zmk,behavior-macro";
-        label = "COMP1";
-        #binding-cells = <0>;
-        wait-ms = <100>;
-        bindings =
-            <&out OUT_USB>,
-            <&kp F15>
-            ;
-        };
-
-        comp2: comp2 {
-        compatible = "zmk,behavior-macro";
-        label = "COMP2";
-        #binding-cells = <0>;
-        wait-ms = <100>;
-        bindings =
-            <&out OUT_USB>,
-            <&kp F16>,
-            <&out OUT_BLE>,
-            <&bt BT_SEL 0>
-            ;
-        };
-
-        mon1: mon1 {
-        compatible = "zmk,behavior-macro";
-        label = "mon1";
-        #binding-cells = <0>;
-        wait-ms = <100>;
-        bindings =
-            <&out OUT_USB>,
-            <&kp F13>
-            ;
-        };
-
-        mon2: mon2 {
-        compatible = "zmk,behavior-macro";
-        label = "mon2";
-        #binding-cells = <0>;
-        wait-ms = <100>;
-        bindings =
-            <&out OUT_USB>,
-            <&kp F14>
-            ;
-        }; 
-
-    };
-
-    behaviors {
-        my_lt: my_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&sl>;
-            display-name = "Layer-Tap";
-        };
-
-        my_lt_kp: my_layer_tap_kp {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <100>;
-            bindings = <&kp>, <&sl>;
-            display-name = "Layer-Tap";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -108,11 +41,11 @@
         mouse_layer {
             display-name = "mouse";
             bindings = <
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans              &trans            &trans        &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans              &trans            &trans        &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &to 2               &mkp MB1          &mkp MB2      &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans              &trans            &trans        &trans        &trans         &trans
-                                    &trans        &trans        &trans        &trans        &trans                     &trans              &trans            &trans        
+             &ktd ESC   &ktd N1  &ktd N2  &ktd N3  &ktd N4  &ktd N5  &ktd N6 &ktd N7   &ktd N8   &ktd N9         &ktd N0          &ktd MINUS
+             &ktd TAB   &ktd Q   &ktd W   &ktd E   &ktd R   &ktd T   &ktd Y  &ktd U    &ktd I    &ktd O          &ktd P           &ktd LBKT
+             &trans     &ktd A   &ktd S   &ktd D   &ktd F   &ktd G   &to 2   &mkp MB1  &mkp MB2  &ktd L          &ktd SEMICOLON   &ktd SINGLE_QUOTE
+             &trans     &ktd Z   &ktd X   &ktd C   &ktd V   &ktd B   &ktd N  &ktd M    &ktd COMMA &ktd PERIOD    &ktd SLASH       &ktd BACKSLASH
+             &trans     &ktd SPACE &ktd DEL        &trans                    &trans    &trans    &ktd BACKSPACE  &ktd ENTER      
             
             >;
         };
@@ -120,11 +53,11 @@
         scroll_layer {
             display-name = "scroll";
             bindings = <
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans             &trans             &trans        &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans             &trans             &trans        &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &to 1              &mkp MB1           &mkp MB2      &trans        &trans         &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans             &trans             &trans        &trans        &trans         &trans
-                                    &trans        &trans        &trans        &trans        &trans                     &trans             &trans             &trans        
+             &ktd ESC   &ktd N1  &ktd N2  &ktd N3  &ktd N4  &ktd N5  &ktd N6 &ktd N7   &ktd N8   &ktd N9         &ktd N0          &ktd MINUS
+             &ktd TAB   &ktd Q   &ktd W   &ktd E   &ktd R   &ktd T   &ktd Y  &ktd U    &ktd I    &ktd O          &ktd P           &ktd LBKT
+             &trans     &ktd A   &ktd S   &ktd D   &ktd F   &ktd G   &ktd H  &mkp MB1  &mkp MB2  &ktd L          &ktd SEMICOLON   &ktd SINGLE_QUOTE
+             &trans     &ktd Z   &ktd X   &ktd C   &ktd V   &ktd B   &ktd N  &ktd M    &ktd COMMA &ktd PERIOD    &ktd SLASH       &ktd BACKSLASH
+             &trans     &ktd SPACE &ktd DEL        &trans                    &trans    &trans    &ktd BACKSPACE  &ktd ENTER       
             
             >;
         };
@@ -144,11 +77,11 @@
         function_layer {
             display-name = "func";
             bindings = <
-              &trans                &mon1         &mon2         &comp1        &comp2        &trans                    &bt BT_SEL 0       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_CLR 
+              &trans                &mon1         &mon2         &comp1        &comp2        &trans                    &bt_sel0           &bt_sel1      &bt_sel2      &bt_sel3      &bt_sel4       &bt_clr_d 
               &trans                &trans        &trans        &trans        &trans        &trans                    &trans             &trans        &trans        &trans        &trans         &trans
               &trans                &trans        &trans        &trans        &trans        &trans                    &trans             &trans        &trans        &trans        &trans         &trans
               &bootloader           &trans        &trans        &trans        &trans        &trans                    &trans             &trans        &trans        &trans        &trans         &bootloader
-                                    &trans        &trans        &trans        &trans        &trans                    &out OUT_BLE       &out OUT_USB  &trans
+                                    &trans        &trans        &trans        &trans        &trans                    &out_ble_d         &out_usb_d    &trans
             >;
         };
 
@@ -156,7 +89,7 @@
             display-name = "fkeys";
             bindings = <
               &trans                &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                     &kp F6             &kp F7        &kp F8           &kp F9        &kp F10        &trans
-              &trans                &trans        &trans        &trans        &trans        &trans                     &trans             &trans        &trans           &trans        &trans         &trans
+              &trans                &trans        &trans        &trans        &trans        &kp F11                    &kp F12            &trans        &trans           &trans        &trans         &trans
               &trans                &trans        &trans        &trans        &trans        &trans                     &trans             &trans        &trans           &trans        &trans         &trans
               &trans                &trans        &trans        &trans        &trans        &trans                     &trans             &trans        &trans           &trans        &trans         &trans
                                     &trans        &trans        &trans        &trans        &trans                     &trans             &trans        &trans           
