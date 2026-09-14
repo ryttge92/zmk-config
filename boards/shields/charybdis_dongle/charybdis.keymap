@@ -17,7 +17,7 @@
 #include "common_macros.dtsi"
 
     &sl {
-    release-after-ms = <1000>;
+    release-after-ms = <2000>;
 };
 
 
@@ -41,11 +41,11 @@
         mouse_layer {
             display-name = "mouse";
             bindings = <
-             &ktd ESC   &ktd N1  &ktd N2  &ktd N3  &ktd N4  &ktd N5  &ktd N6 &ktd N7   &ktd N8   &ktd N9         &ktd N0          &ktd MINUS
-             &ktd TAB   &ktd Q   &ktd W   &ktd E   &ktd R   &ktd T   &ktd Y  &ktd U    &ktd I    &ktd O          &ktd P           &ktd LBKT
-             &trans     &ktd A   &ktd S   &ktd D   &ktd F   &ktd G   &to 2   &mkp MB1  &mkp MB2  &ktd L          &ktd SEMICOLON   &ktd SINGLE_QUOTE
-             &trans     &ktd Z   &ktd X   &ktd C   &ktd V   &ktd B   &ktd N  &ktd M    &ktd COMMA &ktd PERIOD    &ktd SLASH       &ktd BACKSLASH
-             &trans     &ktd SPACE &ktd DEL        &trans                    &trans    &trans    &ktd BACKSPACE  &ktd ENTER      
+             &ktd ESC   &ktd N1     &ktd N2    &ktd N3      &ktd N4  &ktd N5               &ktd N6   &ktd N7           &ktd N8     &ktd N9         &ktd N0          &ktd MINUS
+             &ktd TAB   &ktd Q      &ktd W     &ktd E       &ktd R   &ktd T                &ktd Y    &ktd U            &ktd I      &ktd O          &ktd P           &ktd LBKT
+             &trans     &ktd A      &ktd S     &ktd D       &ktd F   &ktd G                &to 2     &mkp MB1          &mkp MB2    &ktd L          &ktd SEMICOLON   &ktd SINGLE_QUOTE
+             &trans     &ktd Z      &ktd X     &ktd C       &ktd V   &ktd B                &ktd N    &ktd M            &ktd COMMA  &ktd PERIOD     &ktd SLASH       &ktd BACKSLASH
+                        &trans      &ktd SPACE &ktd DEL     &trans   &trans                &trans    &ktd BACKSPACE    &ktd ENTER      
             
             >;
         };
@@ -53,11 +53,11 @@
         scroll_layer {
             display-name = "scroll";
             bindings = <
-             &ktd ESC   &ktd N1  &ktd N2  &ktd N3  &ktd N4  &ktd N5  &ktd N6 &ktd N7   &ktd N8   &ktd N9         &ktd N0          &ktd MINUS
-             &ktd TAB   &ktd Q   &ktd W   &ktd E   &ktd R   &ktd T   &ktd Y  &ktd U    &ktd I    &ktd O          &ktd P           &ktd LBKT
-             &trans     &ktd A   &ktd S   &ktd D   &ktd F   &ktd G   &ktd H  &mkp MB1  &mkp MB2  &ktd L          &ktd SEMICOLON   &ktd SINGLE_QUOTE
-             &trans     &ktd Z   &ktd X   &ktd C   &ktd V   &ktd B   &ktd N  &ktd M    &ktd COMMA &ktd PERIOD    &ktd SLASH       &ktd BACKSLASH
-             &trans     &ktd SPACE &ktd DEL        &trans                    &trans    &trans    &ktd BACKSPACE  &ktd ENTER       
+             &ktd ESC   &ktd N1     &ktd N2     &ktd N3     &ktd N4  &ktd N5            &ktd N6     &ktd N7           &ktd N8           &ktd N9         &ktd N0          &ktd MINUS
+             &ktd TAB   &ktd Q      &ktd W      &ktd E      &ktd R   &ktd T             &ktd Y      &ktd U            &ktd I            &ktd O          &ktd P           &ktd LBKT
+             &trans     &ktd A      &ktd S      &ktd D      &ktd F   &ktd G             &to 0       &mkp MB1          &mkp MB2          &ktd L          &ktd SEMICOLON   &ktd SINGLE_QUOTE
+             &trans     &ktd Z      &ktd X      &ktd C      &ktd V   &ktd B             &ktd N      &ktd M            &ktd COMMA        &ktd PERIOD     &ktd SLASH       &ktd BACKSLASH
+                        &trans      &ktd SPACE  &ktd DEL    &trans   &trans             &trans      &ktd BACKSPACE    &ktd ENTER       
             
             >;
         };
@@ -68,7 +68,7 @@
               &trans                &trans                  &trans        &trans        &trans        &trans                     &trans             &trans        &trans           &trans        &trans         &trans
               &trans                &trans                  &trans        &kp UP        &trans        &trans                     &trans             &trans        &kp PAGE_UP      &trans        &trans         &trans
               &trans                &trans                  &kp LEFT      &kp DOWN      &kp RIGHT     &trans                     &trans             &kp HOME      &kp PAGE_DOWN    &kp END       &trans         &trans
-              &trans                &kp NON_US_BACKSLASH    &kp RBKT      &trans        &trans        &trans                     &mkp MB5           &mkp MB4        &trans           &trans        &trans         &trans
+              &trans                &kp NON_US_BACKSLASH    &kp RBKT      &trans        &trans        &trans                     &mkp MB5           &mkp MB4      &trans           &trans        &trans         &trans
                                     &trans                  &trans        &trans        &trans        &trans                     &trans             &trans        &trans           
             
             >;
