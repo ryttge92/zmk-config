@@ -2,25 +2,20 @@
 #include "dactyl_ryttge_layout.dtsi"
 
 /*
- * Matrix: 5 rows x 9 columns per half, col2row. Both halves use the same pins.
+ * Matrix: 5 rows x 9 columns per half, col2row. Both halves use the same pins,
+ * as in the wiring diagram:
  *
  *   Column   0          1      2       3     4      5             6   7   8
  *   Finger   inner idx  index  middle  ring  pinky  outer pinky   thumb T0-T2
  *
- * Main body, keys present per electrical row (rows grouped by height):
- *   R0: C0-C3        (top key of inner index, index, middle, ring)
- *   R1-R3: C0-C5
- *   R4: C2-C5        (pinky bottom keys + the extra keys under ring/middle)
+ * The map lists every key in wiring order: row by row, columns ascending.
+ * The right half is offset by 9 columns (9-17).
  *
- * Each column is mapped top-down onto the Charybdis rows, so the pinky
- * columns start on R1 and the index columns end on R3. The bottom key of the
- * ring and middle columns is an extra key (A/B left, C/D right).
- *
- * Thumbs share row wires with the main body:
- *   left  thumb rows A-D -> R0-R3, columns T0-T2 -> 6-8
- *   right thumb rows A-C -> R0-R2, columns T0-T2 -> 6-8
- *
- * The right half is offset by 9 columns.
+ * Main body, keys present per row:
+ *   R0: C0-C3   R1-R3: C0-C5   R4: C2-C5
+ * Thumbs share the row wires:
+ *   left  thumb: R0-R2 x T0-T2, plus R3 x T2 (the single key under 9)
+ *   right thumb: R0-R2 x T0-T2
  */
 
 / {
@@ -33,22 +28,12 @@
         columns = <18>;
         rows = <5>;
         map = <
-          // Charybdis 4x6 block
-          RC(1,5) RC(1,4) RC(0,3) RC(0,2) RC(0,1) RC(0,0)     RC(0,9)  RC(0,10) RC(0,11) RC(0,12) RC(1,13) RC(1,14)
-          RC(2,5) RC(2,4) RC(1,3) RC(1,2) RC(1,1) RC(1,0)     RC(1,9)  RC(1,10) RC(1,11) RC(1,12) RC(2,13) RC(2,14)
-          RC(3,5) RC(3,4) RC(2,3) RC(2,2) RC(2,1) RC(2,0)     RC(2,9)  RC(2,10) RC(2,11) RC(2,12) RC(3,13) RC(3,14)
-          RC(4,5) RC(4,4) RC(3,3) RC(3,2) RC(3,1) RC(3,0)     RC(3,9)  RC(3,10) RC(3,11) RC(3,12) RC(4,13) RC(4,14)
-          // Extra keys below ring and middle: left ring, left middle, right middle, right ring
-                          RC(4,3) RC(4,2)                              RC(4,11) RC(4,12)
-          // Left thumb cluster, 4 rows x 3 columns
-          RC(0,6) RC(0,7) RC(0,8)
-          RC(1,6) RC(1,7) RC(1,8)
-          RC(2,6) RC(2,7) RC(2,8)
-          RC(3,6) RC(3,7) RC(3,8)
-          // Right thumb cluster, 3 rows x 3 columns
-          RC(0,15) RC(0,16) RC(0,17)
-          RC(1,15) RC(1,16) RC(1,17)
-          RC(2,15) RC(2,16) RC(2,17)
+          // C0 inIdx C1 idx   C2 mid   C3 ring  C4 pnky  C5 outer T0       T1       T2          C0 inIdx C1 idx   C2 mid   C3 ring  C4 pnky  C5 outer T0       T1       T2
+          RC(0,0)  RC(0,1)  RC(0,2)  RC(0,3)                    RC(0,6)  RC(0,7)  RC(0,8)     RC(0,9)  RC(0,10) RC(0,11) RC(0,12)                   RC(0,15) RC(0,16) RC(0,17)
+          RC(1,0)  RC(1,1)  RC(1,2)  RC(1,3)  RC(1,4)  RC(1,5)  RC(1,6)  RC(1,7)  RC(1,8)     RC(1,9)  RC(1,10) RC(1,11) RC(1,12) RC(1,13) RC(1,14) RC(1,15) RC(1,16) RC(1,17)
+          RC(2,0)  RC(2,1)  RC(2,2)  RC(2,3)  RC(2,4)  RC(2,5)  RC(2,6)  RC(2,7)  RC(2,8)     RC(2,9)  RC(2,10) RC(2,11) RC(2,12) RC(2,13) RC(2,14) RC(2,15) RC(2,16) RC(2,17)
+          RC(3,0)  RC(3,1)  RC(3,2)  RC(3,3)  RC(3,4)  RC(3,5)                    RC(3,8)     RC(3,9)  RC(3,10) RC(3,11) RC(3,12) RC(3,13) RC(3,14)
+                            RC(4,2)  RC(4,3)  RC(4,4)  RC(4,5)                                                  RC(4,11) RC(4,12) RC(4,13) RC(4,14)
         >;
     };
 };
