@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/nuovotaka
     - name: janpfischer
       url-base: https://github.com/janpfischer
+    - name: michaelcoquet
+      url-base: https://github.com/michaelcoquet
 
   projects:
     - name: zmk
@@ -34,6 +36,9 @@ manifest:
     - name: zmk-dongle-screen
       remote: janpfischer
       revision: main
+    - name: zmk-driver-pim447 # PIM447 trackball, Dactyl-Ryttge left half
+      remote: michaelcoquet
+      revision: 9713fb6b1b88f332a725040f2ab0a7a4993dee86 # pinned commit
 
   self:
     path: config
