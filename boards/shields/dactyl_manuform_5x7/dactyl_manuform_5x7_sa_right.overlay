@@ -1,7 +1,7 @@
 #include "dactyl_manuform_5x7_sa.dtsi"
 #include "pmw3610.dtsi"
 #include <input/processors.dtsi>
-#include <input/processors/report_rate_limit.dtsi>
+//#include <input/processors/report_rate_limit.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/input_gestures_accel.dtsi>
 
@@ -62,7 +62,6 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors =
-            <&zip_report_rate_limit 16>, // limit to 16ms, as on the dongle version's right half
             <&pointer_accel>,
             //<&zip_ble_report_rate_limit 8>, // from badjeff's https://github.com/badjeff/zmk-input-processor-report-rate-limit/blob/main/dts/input/processors/report_rate_limit.dtsi
             <&zip_temp_layer 1 1500>,
