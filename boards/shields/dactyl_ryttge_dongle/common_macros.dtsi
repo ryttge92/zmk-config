@@ -1,0 +1,155 @@
+/*
+ * common_macros.dtsi
+ *
+ * Sticky layers (&sl) are released by ZMK when it sees a real HID keycode
+ * press. &bt and &out never raise that event, so a sticky layer that only
+ * contains &bt/&out (or falls through to &trans that resolves to one) can
+ * get stuck active. Rather than rely on that detection at all, every macro
+ * below finishes with an explicit `&to DEFAULT`, which forces the layer
+ * stack back to the base layer no matter what behavior ran.
+ *
+ * Requires `#define DEFAULT 0` (or similar) before this file is included.
+ */
+
+/ {
+    macros {
+        // Generic "tap this keycode, then jump back to the default layer".
+        // Usage: &ktd F1   &ktd UP   &ktd A   etc.
+        ktd: key_then_default {
+            compatible = "zmk,behavior-macro-one-param";
+            label = "KEY_THEN_DEFAULT";
+            #binding-cells = <1>;
+            wait-ms = <0>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_param_1to1>
+                , <&kp MACRO_PLACEHOLDER>
+                , <&to DEFAULT>
+                ;
+        };
+
+        bt_sel0: bt_sel0_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "BT_SEL0_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&to DEFAULT>;
+        };
+
+        bt_sel1: bt_sel1_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "BT_SEL1_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&to DEFAULT>;
+        };
+
+        bt_sel2: bt_sel2_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "BT_SEL2_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&to DEFAULT>;
+        };
+
+        bt_sel3: bt_sel3_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "BT_SEL3_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>, <&to DEFAULT>;
+        };
+
+        bt_sel4: bt_sel4_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "BT_SEL4_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 4>, <&to DEFAULT>;
+        };
+
+        bt_clr_d: bt_clr_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "BT_CLR_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>, <&to DEFAULT>;
+        };
+
+        out_ble_d: out_ble_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "OUT_BLE_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&to DEFAULT>;
+        };
+
+        out_usb_d: out_usb_then_default {
+            compatible = "zmk,behavior-macro";
+            label = "OUT_USB_THEN_DEFAULT";
+            #binding-cells = <0>;
+            bindings = <&out OUT_USB>, <&to DEFAULT>;
+        };
+
+        comp1: comp1 {
+        compatible = "zmk,behavior-macro";
+        label = "COMP1";
+        #binding-cells = <0>;
+        wait-ms = <100>;
+        bindings =
+            <&out OUT_USB>,
+            <&kp F15>
+            ;
+        };
+
+        comp2: comp2 {
+        compatible = "zmk,behavior-macro";
+        label = "COMP2";
+        #binding-cells = <0>;
+        wait-ms = <100>;
+        bindings =
+            <&out OUT_USB>,
+            <&kp F16>,
+            <&out OUT_BLE>,
+            <&bt BT_SEL 0>
+            ;
+        };
+
+        mon1: mon1 {
+        compatible = "zmk,behavior-macro";
+        label = "mon1";
+        #binding-cells = <0>;
+        wait-ms = <100>;
+        bindings =
+            <&out OUT_USB>,
+            <&kp F13>
+            ;
+        };
+
+        mon2: mon2 {
+        compatible = "zmk,behavior-macro";
+        label = "mon2";
+        #binding-cells = <0>;
+        wait-ms = <100>;
+        bindings =
+            <&out OUT_USB>,
+            <&kp F14>
+            ;
+        }; 
+
+    };
+
+        behaviors {
+        my_lt: my_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sl>;
+            display-name = "Layer-Tap";
+        };
+
+        my_lt_kp: my_layer_tap_kp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <100>;
+            bindings = <&kp>, <&sl>;
+            display-name = "Layer-Tap";
+        };
+    };
+
+};

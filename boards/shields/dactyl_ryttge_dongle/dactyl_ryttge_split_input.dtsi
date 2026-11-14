@@ -1,0 +1,42 @@
+/*
+    Split input devices for both trackballs, shared by the halves and the dongle.
+
+    reg 0: PMW3610 on the right half
+    reg 1: PIM447 on the left half
+
+    A peripheral may only enable the split input whose sensor it owns, so each
+    half's overlay disables the other one. The dongle keeps both enabled.
+
+    The listeners are disabled here so the keymap (built for every part) can
+    reference them; the dongle overlay enables them.
+    About input split devices: https://zmk.dev/docs/development/hardware-integration/pointing#shared-configuration-1
+*/
+
+/{
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackball_split_input: trackball_split_input@0 { // right half, PMW3610
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+
+        pim447_split_input: pim447_split_input@1 { // left half, PIM447
+            compatible = "zmk,input-split";
+            reg = <1>;
+        };
+    };
+
+    trackball_split_listener: trackball_split_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&trackball_split_input>;
+    };
+
+    pim447_split_listener: pim447_split_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&pim447_split_input>;
+    };
+};

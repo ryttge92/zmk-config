@@ -1,0 +1,85 @@
+#include "dactyl_ryttge.dtsi"
+#include "dactyl_ryttge_split_input.dtsi"
+#include <input/processors.dtsi>
+#include <input/processors/report_rate_limit.dtsi>
+
+/*
+ * Left half: same matrix pins as the right half.
+ * PIM447 trackball on I2C, using the pins the right half uses for its PMW3610:
+ *   SCL  P0.24   (SCLK on the right)
+ *   SDA  P1.00   (SDIO on the right)
+ *   INT  P0.20   (MOT on the right)
+ *   VCC  3.3V, GND
+ * Driver: https://github.com/michaelcoquet/zmk-driver-pim447
+ */
+
+&pinctrl {
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 0)>,  // SDA P1.00
+                    <NRF_PSEL(TWIM_SCL, 0, 24)>; // SCL P0.24
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 0)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 24)>;
+            low-power-enable;
+        };
+    };
+};
+
+&i2c0 {
+    status = "okay";
+
+    pim447: pim447@a {
+        compatible = "pimoroni,pim447";
+        reg = <0x0a>;
+        status = "okay";
+        int-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>; // INT P0.20, driver adds the pull-up
+        // Orientation depends on how the breakout sits in the case. Adjust after testing:
+        // swap-xy;
+        // invert-x;
+        // invert-y;
+    };
+};
+
+&trackball_split_input { // the PMW3610 lives on the right half
+    status = "disabled";
+};
+
+&pim447_split_input {
+    device = <&pim447>;
+    input-processors = <&zip_report_rate_limit 16>; // same limit as the right half
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R0 + thumb row A
+            , <&gpio0  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R1 + thumb row B
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R2 + thumb row C
+            , <&gpio1  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R3 + thumb row D
+            , <&gpio1  6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R4
+            ;
+
+        col-gpios
+            = <&gpio0 29 GPIO_ACTIVE_HIGH>  // C0 inner index
+            , <&gpio0  6 GPIO_ACTIVE_HIGH>  // C1 index
+            , <&gpio1 15 GPIO_ACTIVE_HIGH>  // C2 middle
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>  // C3 ring
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>  // C4 pinky
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>  // C5 outer pinky
+            , <&gpio0  9 GPIO_ACTIVE_HIGH>  // T0 thumb
+            , <&gpio0 31 GPIO_ACTIVE_HIGH>  // T1 thumb
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>  // T2 thumb
+            ;
+    };
+};

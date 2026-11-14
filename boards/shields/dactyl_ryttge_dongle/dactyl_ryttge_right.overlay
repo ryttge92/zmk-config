@@ -1,0 +1,59 @@
+#include "dactyl_ryttge.dtsi"
+#include "pmw3610.dtsi"
+#include "dactyl_ryttge_split_input.dtsi"
+#include <input/processors.dtsi>
+#include <input/processors/report_rate_limit.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
+
+/*
+ * Right half: same matrix pins as the left half.
+ * PMW3610 on SPI, same pins as the Dactyl and Charybdis (see pmw3610.dtsi):
+ *   SCLK P0.24, SDIO P1.00, CS P0.22, MOT P0.20
+ */
+
+&default_transform {
+    col-offset = <9>;
+};
+
+&spi0 {
+    status = "okay";
+};
+
+&pim447_split_input { // the PIM447 lives on the left half
+    status = "disabled";
+};
+
+&trackball_split_input {
+    device = <&trackball>;
+    input-processors = <&zip_report_rate_limit 16>; // limit to 16ms, default is 16ms
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R0 + thumb row A
+            , <&gpio0  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R1 + thumb row B
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R2 + thumb row C
+            , <&gpio1  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R3
+            , <&gpio1  6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // R4
+            ;
+
+        col-gpios
+            = <&gpio0 29 GPIO_ACTIVE_HIGH>  // C0 inner index
+            , <&gpio0  6 GPIO_ACTIVE_HIGH>  // C1 index
+            , <&gpio1 15 GPIO_ACTIVE_HIGH>  // C2 middle
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>  // C3 ring
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>  // C4 pinky
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>  // C5 outer pinky
+            , <&gpio0  9 GPIO_ACTIVE_HIGH>  // T0 thumb
+            , <&gpio0 31 GPIO_ACTIVE_HIGH>  // T1 thumb
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>  // T2 thumb
+            ;
+    };
+};
