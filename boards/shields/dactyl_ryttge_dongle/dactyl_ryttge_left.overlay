@@ -38,6 +38,9 @@
         reg = <0x0a>;
         status = "okay";
         int-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>; // INT P0.20, driver adds the pull-up
+        // Movement multiplier in 1/16ths (16 = 1x). The PIM447 reports few counts
+        // per turn, so scale it up here; only the left half needs reflashing to tune it.
+        base-scale = <128>; // 8x
         // Orientation depends on how the breakout sits in the case. Adjust after testing:
         // swap-xy;
         // invert-x;
