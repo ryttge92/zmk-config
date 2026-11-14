@@ -38,9 +38,12 @@
         reg = <0x0a>;
         status = "okay";
         int-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>; // INT P0.20, driver adds the pull-up
-        // Movement multiplier in 1/16ths (16 = 1x). The PIM447 reports few counts
-        // per turn, so scale it up here; only the left half needs reflashing to tune it.
-        base-scale = <256>; // 16x
+        // The PIM447 reports only a few counts per turn. A large flat multiplier makes
+        // the cursor jump, so use a moderate base and let fast rolls accelerate.
+        // Only the left half needs reflashing to tune these.
+        base-scale = <64>;      // 4x, in 1/16ths (16 = 1x)
+        accel-divisor = <1>;    // accelerate when a read is above 1 count
+        accel-exponent = <2>;   // quadratic: adds (counts - 1)^2 / 16 to the multiplier
         // Orientation depends on how the breakout sits in the case. Adjust after testing:
         // swap-xy;
         // invert-x;
