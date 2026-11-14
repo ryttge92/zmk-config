@@ -71,6 +71,18 @@ include:
     shield: dactyl_ryttge_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
+  # Dactyl-Ryttge halves with USB logging, for trackball debugging
+  - board: nice_nano
+    shield: dactyl_ryttge_left
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_PIM447_LOG_LEVEL_DBG=y
+    artifact-name: dactyl_ryttge_left_logging
+  - board: nice_nano
+    shield: dactyl_ryttge_right
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: dactyl_ryttge_right_logging
+
   #test
     
   - board: nice_nano
