@@ -64,20 +64,20 @@ include:
     shield: dactyl_ryttge_dongle dongle_screen
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: nice_nano
+  - board: nice_nano_v2
     shield: dactyl_ryttge_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: nice_nano
+  - board: nice_nano_v2
     shield: dactyl_ryttge_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
   # Dactyl-Ryttge halves with USB logging, for trackball debugging
-  - board: nice_nano
+  - board: nice_nano_v2
     shield: dactyl_ryttge_left
     snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_PIM447_LOG_LEVEL_DBG=y -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=5000
     artifact-name: dactyl_ryttge_left_logging
-  - board: nice_nano
+  - board: nice_nano_v2
     shield: dactyl_ryttge_right
     snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=5000
