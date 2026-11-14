@@ -19,11 +19,12 @@
 /*
  * Main body: Charybdis 4x6 block per half, plus A B C D placeholders on the
  * extra keys under the ring and middle columns.
- * Thumb clusters: number placeholders only, for testing the feel.
- *   Left:  1-9 on the 3x3 grid, 0 on the single key under 9.
- *   Right: 1-9.
- * The Charybdis thumb keys (GUI SPC DEL RALT ALT / NAV BSPC ENT) are not mapped
- * yet, so the nav, func and fkeys layers have no way in until they are.
+ * Left thumb cluster (positions 1-9 on the 3x3 grid, 0 under 9):
+ *   1 GUI   2 RALT   3 fkeys (&to 5; on the fkeys layer &to 0)
+ *   4 SPACE 5 ALT    6 ENTER
+ *   7 NAV (hold nav, tap sticky func)  8 DEL  9 BACKSPACE
+ *   0 CAPS
+ * Right thumb cluster: number placeholders 1-9 for now.
  */
 
     &sl {
@@ -45,14 +46,14 @@
               // extra keys under ring/middle: left ring, left middle, right middle, right ring
                                                       &kp A               &kp B                                                                                                   &kp C               &kp D
               // left thumb cluster (3x3 grid plus one key under the last column)
-              &kp N1              &kp N2              &kp N3
-              &kp N4              &kp N5              &kp N6
-              &kp N7              &kp N8              &kp N9
-                                                      &kp N0
-              // right thumb cluster (3 rows x 3)
-              &kp N1              &kp N2              &kp N3
-              &kp N4              &kp N5              &kp N6
-              &kp N7              &kp N8              &kp N9
+              &kp LGUI            &kp RALT            &to 5
+              &kp SPACE           &kp LALT            &kp ENTER
+              &my_lt 3 4          &kp DEL             &kp BACKSPACE
+                                                      &kp CAPS
+              // right thumb cluster (3 rows x 3), each row right to left like the transform
+              &kp N3              &kp N2              &kp N1
+              &kp N6              &kp N5              &kp N4
+              &kp N9              &kp N8              &kp N7
             >;
         };
 
@@ -67,10 +68,10 @@
                                                       &trans              &trans                                                                                                  &trans              &trans
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &trans              &trans
-              &trans              &trans              &trans
-              &trans              &trans              &trans
-                                                      &trans
-              // right thumb cluster (3 rows x 3)
+              &ktd SPACE          &trans              &ktd ENTER
+              &trans              &ktd DEL            &ktd BACKSPACE
+                                                      &ktd CAPS
+              // right thumb cluster (3 rows x 3), each row right to left like the transform
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -88,10 +89,10 @@
                                                       &trans              &trans                                                                                                  &trans              &trans
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &trans              &trans
-              &trans              &trans              &trans
-              &trans              &trans              &trans
-                                                      &trans
-              // right thumb cluster (3 rows x 3)
+              &ktd SPACE          &trans              &ktd ENTER
+              &trans              &ktd DEL            &ktd BACKSPACE
+                                                      &ktd CAPS
+              // right thumb cluster (3 rows x 3), each row right to left like the transform
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -112,7 +113,7 @@
               &trans              &trans              &trans
               &trans              &trans              &trans
                                                       &trans
-              // right thumb cluster (3 rows x 3)
+              // right thumb cluster (3 rows x 3), each row right to left like the transform
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -133,7 +134,7 @@
               &trans              &trans              &trans
               &trans              &trans              &trans
                                                       &trans
-              // right thumb cluster (3 rows x 3)
+              // right thumb cluster (3 rows x 3), each row right to left like the transform
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -150,11 +151,11 @@
               // extra keys under ring/middle: left ring, left middle, right middle, right ring
                                                       &trans              &trans                                                                                                  &trans              &trans
               // left thumb cluster (3x3 grid plus one key under the last column)
-              &trans              &trans              &trans
+              &trans              &trans              &to 0
               &trans              &trans              &trans
               &trans              &trans              &trans
                                                       &trans
-              // right thumb cluster (3 rows x 3)
+              // right thumb cluster (3 rows x 3), each row right to left like the transform
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
