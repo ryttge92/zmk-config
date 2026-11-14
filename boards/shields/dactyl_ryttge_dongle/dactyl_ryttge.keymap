@@ -17,15 +17,11 @@
 #include "common_macros.dtsi"
 
 /*
- * Bindings are in wiring order, the same as the matrix transform: one line per
- * matrix row, columns ascending (left C0-C5 then thumb T0-T2, right C0-C5 then
- * thumb T0-T2). Left C0 is the inner index column, so the left half reads
- * mirrored compared with the physical board.
- *
- * Main body: Charybdis 4x6 block, plus A B C D placeholders on the extra keys
- * under the ring and middle columns (R4 C2/C3 on each half).
+ * Main body: Charybdis 4x6 block per half, plus A B C D placeholders on the
+ * extra keys under the ring and middle columns.
  * Thumb clusters: number placeholders only, for testing the feel.
- *   Left:  1-9 on the 3x3 grid, 0 on the single key under 9 (R3 T2).
+ *   Left:  1-0 on the 10 switches. MINUS/EQUAL fill the two matrix slots of the
+ *          3x4 grid that may not have a switch; whichever never fires is empty.
  *   Right: 1-9.
  * The Charybdis thumb keys (GUI SPC DEL RALT ALT / NAV BSPC ENT) are not mapped
  * yet, so the nav, func and fkeys layers have no way in until they are.
@@ -43,66 +39,126 @@
         default_layer {
             display-name = "base";
             bindings = <
-              &kp NUMBER_5        &kp NUMBER_4        &kp NUMBER_3        &kp NUMBER_2                                                &kp N1              &kp N2              &kp N3                  &kp NUMBER_6        &kp NUMBER_7        &kp NUMBER_8        &kp NUMBER_9                                                &kp N1              &kp N2              &kp N3
-              &kp T               &kp R               &kp E               &kp W               &kp NUMBER_1        &kp ESC             &kp N4              &kp N5              &kp N6                  &kp Y               &kp U               &kp I               &kp O               &kp NUMBER_0        &kp MINUS           &kp N4              &kp N5              &kp N6
-              &kp G               &kp F               &kp D               &kp S               &kp Q               &kp TAB             &kp N7              &kp N8              &kp N9                  &kp H               &kp J               &kp K               &kp L               &kp P               &kp LBKT            &kp N7              &kp N8              &kp N9
-              &kp B               &kp V               &kp C               &kp X               &kp A               &kp LSHIFT                                                  &kp N0                  &kp N               &kp M               &kp COMMA           &kp PERIOD          &kp SEMICOLON       &kp SINGLE_QUOTE
-                                                      &kp B               &kp A               &kp Z               &kp LCTRL                                                                                                                   &kp C               &kp D               &kp SLASH           &kp BACKSLASH
+              &kp ESC             &kp NUMBER_1        &kp NUMBER_2        &kp NUMBER_3        &kp NUMBER_4        &kp NUMBER_5            &kp NUMBER_6        &kp NUMBER_7        &kp NUMBER_8        &kp NUMBER_9        &kp NUMBER_0        &kp MINUS
+              &kp TAB             &kp Q               &kp W               &kp E               &kp R               &kp T                   &kp Y               &kp U               &kp I               &kp O               &kp P               &kp LBKT
+              &kp LSHIFT          &kp A               &kp S               &kp D               &kp F               &kp G                   &kp H               &kp J               &kp K               &kp L               &kp SEMICOLON       &kp SINGLE_QUOTE
+              &kp LCTRL           &kp Z               &kp X               &kp C               &kp V               &kp B                   &kp N               &kp M               &kp COMMA           &kp PERIOD          &kp SLASH           &kp BACKSLASH
+              // extra keys under ring/middle: left ring, left middle, right middle, right ring
+                                                      &kp A               &kp B                                                                                                   &kp C               &kp D
+              // left thumb cluster (4 rows x 3)
+              &kp N1              &kp N2              &kp N3
+              &kp N4              &kp N5              &kp N6
+              &kp N7              &kp N8              &kp N9
+              &kp N0              &kp MINUS           &kp EQUAL
+              // right thumb cluster (3 rows x 3)
+              &kp N1              &kp N2              &kp N3
+              &kp N4              &kp N5              &kp N6
+              &kp N7              &kp N8              &kp N9
             >;
         };
 
         mouse_layer {
             display-name = "mouse";
             bindings = <
-              &ktd N5             &ktd N4             &ktd N3             &ktd N2                                                     &trans              &trans              &trans                  &ktd N6             &ktd N7             &ktd N8             &ktd N9                                                     &trans              &trans              &trans
-              &ktd T              &ktd R              &ktd E              &ktd W              &ktd N1             &ktd ESC            &trans              &trans              &trans                  &ktd Y              &ktd U              &ktd I              &ktd O              &ktd N0             &ktd MINUS          &trans              &trans              &trans
-              &ktd G              &ktd F              &ktd D              &ktd S              &ktd Q              &ktd TAB            &trans              &trans              &trans                  &to 2               &mkp MB1            &mkp MB2            &ktd L              &ktd P              &ktd LBKT           &trans              &trans              &trans
-              &ktd B              &ktd V              &ktd C              &ktd X              &ktd A              &trans                                                      &trans                  &ktd N              &ktd M              &ktd COMMA          &ktd PERIOD         &ktd SEMICOLON      &ktd SINGLE_QUOTE
-                                                      &trans              &trans              &ktd Z              &trans                                                                                                                      &trans              &trans              &ktd SLASH          &ktd BACKSLASH
+              &ktd ESC            &ktd N1             &ktd N2             &ktd N3             &ktd N4             &ktd N5                 &ktd N6             &ktd N7             &ktd N8             &ktd N9             &ktd N0             &ktd MINUS
+              &ktd TAB            &ktd Q              &ktd W              &ktd E              &ktd R              &ktd T                  &ktd Y              &ktd U              &ktd I              &ktd O              &ktd P              &ktd LBKT
+              &trans              &ktd A              &ktd S              &ktd D              &ktd F              &ktd G                  &to 2               &mkp MB1            &mkp MB2            &ktd L              &ktd SEMICOLON      &ktd SINGLE_QUOTE
+              &trans              &ktd Z              &ktd X              &ktd C              &ktd V              &ktd B                  &ktd N              &ktd M              &ktd COMMA          &ktd PERIOD         &ktd SLASH          &ktd BACKSLASH
+              // extra keys under ring/middle: left ring, left middle, right middle, right ring
+                                                      &trans              &trans                                                                                                  &trans              &trans
+              // left thumb cluster (4 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              // right thumb cluster (3 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
             >;
         };
 
         scroll_layer {
             display-name = "scroll";
             bindings = <
-              &ktd N5             &ktd N4             &ktd N3             &ktd N2                                                     &trans              &trans              &trans                  &ktd N6             &ktd N7             &ktd N8             &ktd N9                                                     &trans              &trans              &trans
-              &ktd T              &ktd R              &ktd E              &ktd W              &ktd N1             &ktd ESC            &trans              &trans              &trans                  &ktd Y              &ktd U              &ktd I              &ktd O              &ktd N0             &ktd MINUS          &trans              &trans              &trans
-              &ktd G              &ktd F              &ktd D              &ktd S              &ktd Q              &ktd TAB            &trans              &trans              &trans                  &to 0               &mkp MB1            &mkp MB2            &ktd L              &ktd P              &ktd LBKT           &trans              &trans              &trans
-              &ktd B              &ktd V              &ktd C              &ktd X              &ktd A              &trans                                                      &trans                  &ktd N              &ktd M              &ktd COMMA          &ktd PERIOD         &ktd SEMICOLON      &ktd SINGLE_QUOTE
-                                                      &trans              &trans              &ktd Z              &trans                                                                                                                      &trans              &trans              &ktd SLASH          &ktd BACKSLASH
+              &ktd ESC            &ktd N1             &ktd N2             &ktd N3             &ktd N4             &ktd N5                 &ktd N6             &ktd N7             &ktd N8             &ktd N9             &ktd N0             &ktd MINUS
+              &ktd TAB            &ktd Q              &ktd W              &ktd E              &ktd R              &ktd T                  &ktd Y              &ktd U              &ktd I              &ktd O              &ktd P              &ktd LBKT
+              &trans              &ktd A              &ktd S              &ktd D              &ktd F              &ktd G                  &to 0               &mkp MB1            &mkp MB2            &ktd L              &ktd SEMICOLON      &ktd SINGLE_QUOTE
+              &trans              &ktd Z              &ktd X              &ktd C              &ktd V              &ktd B                  &ktd N              &ktd M              &ktd COMMA          &ktd PERIOD         &ktd SLASH          &ktd BACKSLASH
+              // extra keys under ring/middle: left ring, left middle, right middle, right ring
+                                                      &trans              &trans                                                                                                  &trans              &trans
+              // left thumb cluster (4 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              // right thumb cluster (3 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
             >;
         };
 
         navigation_layer {
             display-name = "navigation";
             bindings = <
-              &trans              &trans              &trans              &trans                                                      &trans              &trans              &trans                  &trans              &trans              &trans              &trans                                                      &trans              &trans              &trans
-              &trans              &trans              &kp UP              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &kp PAGE_UP         &trans              &trans              &trans              &trans              &trans              &trans
-              &trans              &kp RIGHT           &kp DOWN            &kp LEFT            &trans              &trans              &trans              &trans              &trans                  &trans              &kp HOME            &kp PAGE_DOWN       &kp END             &trans              &trans              &trans              &trans              &trans
-              &trans              &trans              &trans              &kp RBKT            &trans              &trans                                                      &trans                  &mkp MB5            &mkp MB4            &trans              &trans              &trans              &trans
-                                                      &trans              &trans              &kp NON_US_BACKSLASH&trans                                                                                                                      &trans              &trans              &trans              &trans
+              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans
+              &trans              &trans              &trans              &kp UP              &trans              &trans                  &trans              &trans              &kp PAGE_UP         &trans              &trans              &trans
+              &trans              &trans              &kp LEFT            &kp DOWN            &kp RIGHT           &trans                  &trans              &kp HOME            &kp PAGE_DOWN       &kp END             &trans              &trans
+              &trans              &kp NON_US_BACKSLASH  &kp RBKT            &trans              &trans              &trans                  &mkp MB5            &mkp MB4            &trans              &trans              &trans              &trans
+              // extra keys under ring/middle: left ring, left middle, right middle, right ring
+                                                      &trans              &trans                                                                                                  &trans              &trans
+              // left thumb cluster (4 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              // right thumb cluster (3 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
             >;
         };
 
         function_layer {
             display-name = "func";
             bindings = <
-              &trans              &comp2              &comp1              &mon2                                                       &trans              &trans              &trans                  &bt_sel0            &bt_sel1            &bt_sel2            &bt_sel3                                                    &trans              &trans              &trans
-              &trans              &trans              &trans              &trans              &mon1               &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &bt_sel4            &bt_clr_d           &trans              &trans              &trans
-              &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans
-              &trans              &trans              &trans              &trans              &trans              &trans                                                      &trans                  &trans              &trans              &trans              &trans              &trans              &trans
-                                                      &trans              &trans              &trans              &bootloader                                                                                                                 &trans              &trans              &trans              &bootloader
+              &trans              &mon1               &mon2               &comp1              &comp2              &trans                  &bt_sel0            &bt_sel1            &bt_sel2            &bt_sel3            &bt_sel4            &bt_clr_d
+              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans
+              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans
+              &bootloader         &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &bootloader
+              // extra keys under ring/middle: left ring, left middle, right middle, right ring
+                                                      &trans              &trans                                                                                                  &trans              &trans
+              // left thumb cluster (4 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              // right thumb cluster (3 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
             >;
         };
 
         fkeys_layer {
             display-name = "fkeys";
             bindings = <
-              &kp F5              &kp F4              &kp F3              &kp F2                                                      &trans              &trans              &trans                  &kp F6              &kp F7              &kp F8              &kp F9                                                      &trans              &trans              &trans
-              &kp F11             &trans              &trans              &trans              &kp F1              &trans              &trans              &trans              &trans                  &kp F12             &trans              &trans              &trans              &kp F10             &trans              &trans              &trans              &trans
-              &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans              &trans
-              &trans              &trans              &trans              &trans              &trans              &trans                                                      &trans                  &trans              &trans              &trans              &trans              &trans              &trans
-                                                      &trans              &trans              &trans              &trans                                                                                                                      &trans              &trans              &trans              &trans
+              &trans              &kp F1              &kp F2              &kp F3              &kp F4              &kp F5                  &kp F6              &kp F7              &kp F8              &kp F9              &kp F10             &trans
+              &trans              &trans              &trans              &trans              &trans              &kp F11                 &kp F12             &trans              &trans              &trans              &trans              &trans
+              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans
+              &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans
+              // extra keys under ring/middle: left ring, left middle, right middle, right ring
+                                                      &trans              &trans                                                                                                  &trans              &trans
+              // left thumb cluster (4 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              // right thumb cluster (3 rows x 3)
+              &trans              &trans              &trans
+              &trans              &trans              &trans
+              &trans              &trans              &trans
             >;
         };
 
