@@ -53,7 +53,11 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
-       // force-awake; // will cause warping and cursor jumping. Don't recommend now.
-       // force-high-performance;
+        // Test: sample every 2-4 ms instead of 8 ms so fast rolls don't lose tracking.
+        // force-high-performance only takes effect together with force-awake, which keeps
+        // the sensor out of its rest modes (more battery). force-awake has caused warping
+        // before; comment both out again if it does here.
+        force-awake;
+        force-high-performance;
     };
 };

@@ -80,7 +80,7 @@ include:
   - board: nice_nano_v2
     shield: dactyl_ryttge_right
     snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=5000
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=5000 -DCONFIG_PMW3610_LOG_LEVEL_DBG=y -DCONFIG_PMW3610_SQUAL_LOG=y
     artifact-name: dactyl_ryttge_right_logging
 
   #test
