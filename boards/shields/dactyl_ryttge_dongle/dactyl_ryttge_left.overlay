@@ -37,7 +37,11 @@
         compatible = "pimoroni,pim447";
         reg = <0x0a>;
         status = "okay";
-        int-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>; // INT P0.20, driver adds the pull-up
+        // Polling instead of the INT pin (P0.20, still wired): in interrupt mode the
+        // driver re-reads in bursts while INT stays active, which starved the key scan
+        // and split link (lag, stuck keys). One read every poll-interval is lighter.
+        // int-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+        poll-interval-ms = <15>;
         // The PIM447 reports only a few counts per turn. A large flat multiplier makes
         // the cursor jump, so use a moderate base and let fast rolls accelerate.
         // Only the left half needs reflashing to tune these.
