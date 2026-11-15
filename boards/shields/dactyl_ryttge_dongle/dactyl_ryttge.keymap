@@ -24,7 +24,10 @@
  *   4 SPACE 5 ALT    6 ENTER
  *   7 NAV (hold nav, tap sticky func)  8 DEL  9 BACKSPACE
  *   0 CAPS
- * Right thumb cluster: number placeholders 1-9 for now.
+ * Right thumb cluster (left to right, top to bottom):
+ *   1 func (sticky)  2 fkeys (&to 5; on the fkeys layer &to 0)  3 NAV (hold)
+ *   4 N4 placeholder 5 N5 placeholder  6 GUI
+ *   7 SPACE          8 ENTER           9 BACKSPACE
  */
 
     &sl {
@@ -51,9 +54,9 @@
               &my_lt 3 4          &kp DEL             &kp BACKSPACE
                                                       &kp CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
-              &kp N1              &kp N2              &kp N3
-              &kp N4              &kp N5              &kp N6
-              &kp N7              &kp N8              &kp N9
+              &sl 4               &to 5               &mo 3
+              &kp N4              &kp N5              &kp LGUI
+              &kp SPACE           &kp ENTER           &kp BACKSPACE
             >;
         };
 
@@ -74,7 +77,7 @@
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
-              &trans              &trans              &trans
+              &ktd SPACE          &ktd ENTER          &ktd BACKSPACE
             >;
         };
 
@@ -95,7 +98,7 @@
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
-              &trans              &trans              &trans
+              &ktd SPACE          &ktd ENTER          &ktd BACKSPACE
             >;
         };
 
@@ -156,7 +159,7 @@
               &trans              &trans              &trans
                                                       &trans
               // right thumb cluster (3 rows x 3), left to right as on the board
-              &trans              &trans              &trans
+              &trans              &to 0               &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
             >;
