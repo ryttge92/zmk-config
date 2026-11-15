@@ -40,10 +40,11 @@
           RC(1,6) RC(1,7) RC(1,8)
           RC(2,6) RC(2,7) RC(2,8)
                           RC(3,8)
-          // Right thumb cluster, 3 rows x 3 columns, listed left to right as on the board
-          RC(0,15) RC(0,16) RC(0,17)
-          RC(1,15) RC(1,16) RC(1,17)
-          RC(2,15) RC(2,16) RC(2,17)
+          // Right thumb cluster, 3 rows x 3 columns, listed left to right as on the board.
+          // Column 17 (T2) is the physical left key, so each row runs 17 16 15.
+          RC(0,17) RC(0,16) RC(0,15)
+          RC(1,17) RC(1,16) RC(1,15)
+          RC(2,17) RC(2,16) RC(2,15)
         >;
     };
 };
