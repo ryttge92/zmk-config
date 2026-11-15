@@ -46,7 +46,7 @@
         // the cursor jump, so use a moderate base and let fast rolls accelerate.
         // Only the left half needs reflashing to tune these.
         // The dongle does not accelerate the PIM447, so this is the whole curve.
-        base-scale = <96>;      // 6x, in 1/16ths (16 = 1x)
+        base-scale = <192>;     // 12x, in 1/16ths (16 = 1x)
         accel-divisor = <1>;    // accelerate when a read is above 1 count
         accel-exponent = <2>;   // quadratic: adds (counts - 1)^2 / 16 to the multiplier
         jitter-threshold = <0>; // pass single counts straight through; holding them back
