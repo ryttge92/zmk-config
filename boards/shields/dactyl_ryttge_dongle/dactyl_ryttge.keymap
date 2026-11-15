@@ -50,10 +50,10 @@
               &kp SPACE           &kp LALT            &kp ENTER
               &my_lt 3 4          &kp DEL             &kp BACKSPACE
                                                       &kp CAPS
-              // right thumb cluster (3 rows x 3), each row right to left like the transform
-              &kp N3              &kp N2              &kp N1
-              &kp N6              &kp N5              &kp N4
-              &kp N9              &kp N8              &kp N7
+              // right thumb cluster (3 rows x 3), left to right as on the board
+              &kp N1              &kp N2              &kp N3
+              &kp N4              &kp N5              &kp N6
+              &kp N7              &kp N8              &kp N9
             >;
         };
 
@@ -71,7 +71,7 @@
               &ktd SPACE          &trans              &ktd ENTER
               &trans              &ktd DEL            &ktd BACKSPACE
                                                       &ktd CAPS
-              // right thumb cluster (3 rows x 3), each row right to left like the transform
+              // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -92,7 +92,7 @@
               &ktd SPACE          &trans              &ktd ENTER
               &trans              &ktd DEL            &ktd BACKSPACE
                                                       &ktd CAPS
-              // right thumb cluster (3 rows x 3), each row right to left like the transform
+              // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -113,7 +113,7 @@
               &trans              &trans              &trans
               &trans              &trans              &trans
                                                       &trans
-              // right thumb cluster (3 rows x 3), each row right to left like the transform
+              // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -134,7 +134,7 @@
               &trans              &trans              &trans
               &trans              &trans              &trans
                                                       &trans
-              // right thumb cluster (3 rows x 3), each row right to left like the transform
+              // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
@@ -155,7 +155,7 @@
               &trans              &trans              &trans
               &trans              &trans              &trans
                                                       &trans
-              // right thumb cluster (3 rows x 3), each row right to left like the transform
+              // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
               &trans              &trans              &trans
               &trans              &trans              &trans
