@@ -48,17 +48,19 @@
         };
     };
 
-    &pim447_split_listener { // left half PIM447, same processors as the PMW3610 except orientation
+    &pim447_split_listener { // left half PIM447
+        // No pointer_accel here: it is tuned for the PMW3610's much higher count rate and
+        // scaled the PIM447 down to its 0.2x minimum. Acceleration for the PIM447 is done
+        // in its driver on the left half (base-scale / accel-* in dactyl_ryttge_left.overlay).
+        // No axis transform: the PIM447's own X/Y already match the screen.
         status= "okay";
         input-processors =
-            <&pointer_accel>,
-            //<&zip_ble_report_rate_limit 8>, // from badjeff's https://github.com/badjeff/zmk-input-processor-report-rate-limit/blob/main/dts/input/processors/report_rate_limit.dtsi
-            <&zip_temp_layer 1 1000>,
-            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>; // PIM447 sits rotated 90 degrees
+            <&zip_temp_layer 1 1000>;
 
         scroll {
             layers = <2>; // scroll_layer
             input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 1 16>,
             <&zip_xy_to_scroll_mapper>;
         };

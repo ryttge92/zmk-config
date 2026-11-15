@@ -45,9 +45,12 @@
         // The PIM447 reports only a few counts per turn. A large flat multiplier makes
         // the cursor jump, so use a moderate base and let fast rolls accelerate.
         // Only the left half needs reflashing to tune these.
-        base-scale = <64>;      // 4x, in 1/16ths (16 = 1x)
+        // The dongle does not accelerate the PIM447, so this is the whole curve.
+        base-scale = <96>;      // 6x, in 1/16ths (16 = 1x)
         accel-divisor = <1>;    // accelerate when a read is above 1 count
         accel-exponent = <2>;   // quadratic: adds (counts - 1)^2 / 16 to the multiplier
+        jitter-threshold = <0>; // pass single counts straight through; holding them back
+                                // made slow rolls stutter and lag
         // Orientation depends on how the breakout sits in the case. Adjust after testing:
         // swap-xy;
         // invert-x;
