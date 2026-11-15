@@ -47,16 +47,16 @@
               &kp LSHIFT          &kp A               &kp S               &kp D               &kp F               &kp G                   &kp H               &kp J               &kp K               &kp L               &kp SEMICOLON       &kp SINGLE_QUOTE
               &kp LCTRL           &kp Z               &kp X               &kp C               &kp V               &kp B                   &kp N               &kp M               &kp COMMA           &kp PERIOD          &kp SLASH           &kp BACKSLASH
               // extra keys under ring/middle: left ring, left middle, right middle, right ring
-                                                      &kp A               &kp B                                                                                                   &kp C               &kp D
+                                                      &kp NON_US_BACKSLASH  &kp RBKT                                                                                                   &kp BACKSPACE              &kp ENTER
               // left thumb cluster (3x3 grid plus one key under the last column)
-              &kp LGUI            &kp RALT            &to 5
-              &kp SPACE           &kp LALT            &kp ENTER
-              &my_lt 3 4          &kp DEL             &kp BACKSPACE
+              &kp LALT            &kp RALT            &to 5
+              &kp SPACE           &kp LGUI            &kp BACKSPACE
+              &my_lt 3 4          &kp DEL             &kp ENTER
                                                       &kp CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &sl 4               &to 5               &mo 3
-              &kp N4              &kp N5              &kp LGUI
-              &kp SPACE           &kp ENTER           &kp BACKSPACE
+              &kp N4              &kp N5              &kp ENTER
+              &kp SPACE           &kp LGUI            &kp BACKSPACE
             >;
         };
 
@@ -71,8 +71,8 @@
                                                       &trans              &trans                                                                                                  &trans              &trans
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &trans              &trans
-              &ktd SPACE          &trans              &ktd ENTER
-              &trans              &ktd DEL            &ktd BACKSPACE
+              &ktd SPACE          &trans              &ktd BACKSPACE
+              &trans              &ktd DEL            &ktd ENTER
                                                       &ktd CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
@@ -92,8 +92,8 @@
                                                       &trans              &trans                                                                                                  &trans              &trans
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &trans              &trans
-              &ktd SPACE          &trans              &ktd ENTER
-              &trans              &ktd DEL            &ktd BACKSPACE
+              &ktd SPACE          &trans              &ktd BACKSPACE
+              &trans              &ktd DEL            &ktd ENTER
                                                       &ktd CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
