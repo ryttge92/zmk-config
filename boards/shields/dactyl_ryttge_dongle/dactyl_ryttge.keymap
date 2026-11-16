@@ -131,7 +131,7 @@
               &trans              &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &trans
               &bootloader         &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans              &bootloader
               // extra keys under ring/middle: left ring, left middle, right middle, right ring
-                                                      &trans              &trans                                                                                                  &trans              &trans
+                                                      &trans              &trans                                                                                                  &OUT_USB_THEN_DEFAULT              &OUT_BLE_THEN_DEFAULT
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &trans              &trans
               &trans              &trans              &trans
