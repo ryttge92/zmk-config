@@ -22,12 +22,12 @@
  * Left thumb cluster (positions 1-9 on the 3x3 grid, 0 under 9):
  *   1 ALT   2 SPACE  3 fkeys (&to 5; on the fkeys layer &to 0)
  *   4 RALT  5 GUI    6 BACKSPACE
- *   7 NAV (hold nav, tap sticky func)  8 DEL  9 ENTER
+ *   7 NAV (hold nav, tap sticky func)  8 ENTER  9 DEL
  *   0 CAPS
  * Right thumb cluster (left to right, top to bottom):
  *   1 func (sticky)  2 fkeys (&to 5; on the fkeys layer &to 0)  3 NAV (hold)
- *   4 N4 placeholder 5 N5 placeholder  6 ENTER
- *   7 SPACE          8 GUI             9 BACKSPACE
+ *   4 N4 placeholder 5 N5 placeholder  6 GUI
+ *   7 SPACE          8 ENTER           9 BACKSPACE
  */
 
     &sl {
@@ -51,12 +51,12 @@
               // left thumb cluster (3x3 grid plus one key under the last column)
               &kp LALT            &kp SPACE           &to 5
               &kp RALT            &kp LGUI            &kp BACKSPACE
-              &my_lt 3 4          &kp DEL             &kp ENTER
+              &my_lt 3 4          &kp ENTER           &kp DEL
                                                       &kp CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &sl 4               &to 5               &mo 3
-              &kp N4              &kp N5              &kp ENTER
-              &kp SPACE           &kp LGUI            &kp BACKSPACE
+              &kp N4              &kp N5              &kp LGUI
+              &kp SPACE           &kp ENTER           &kp BACKSPACE
             >;
         };
 
@@ -72,11 +72,11 @@
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &ktd SPACE          &trans
               &trans              &trans              &ktd BACKSPACE
-              &trans              &ktd DEL            &ktd ENTER
+              &trans              &ktd ENTER          &ktd DEL
                                                       &ktd CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
-              &trans              &trans              &trans
+              &ktd N4             &ktd N5             &trans
               &ktd SPACE          &ktd ENTER          &ktd BACKSPACE
             >;
         };
@@ -93,11 +93,11 @@
               // left thumb cluster (3x3 grid plus one key under the last column)
               &trans              &ktd SPACE          &trans
               &trans              &trans              &ktd BACKSPACE
-              &trans              &ktd DEL            &ktd ENTER
+              &trans              &ktd ENTER          &ktd DEL
                                                       &ktd CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
-              &trans              &trans              &trans
+              &ktd N4             &ktd N5             &trans
               &ktd SPACE          &ktd ENTER          &ktd BACKSPACE
             >;
         };
