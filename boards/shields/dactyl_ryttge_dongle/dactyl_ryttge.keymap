@@ -26,7 +26,7 @@
  *   0 CAPS
  * Right thumb cluster (left to right, top to bottom):
  *   1 func (sticky)  2 fkeys (&to 5; on the fkeys layer &to 0)  3 NAV (hold)
- *   4 N4 placeholder 5 N5 placeholder  6 GUI
+ *   4 GUI+Shift+Ctrl+Up  5 GUI+Shift+Ctrl+Down  6 GUI
  *   7 SPACE          8 ENTER           9 BACKSPACE
  */
 
@@ -55,7 +55,7 @@
                                                       &kp CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &sl 4               &to 5               &mo 3
-              &kp N4              &kp N5              &kp LGUI
+              &kp LG(LS(LC(UP)))      &kp LG(LS(LC(DOWN)))    &kp LGUI
               &kp SPACE           &kp ENTER           &kp BACKSPACE
             >;
         };
@@ -76,7 +76,7 @@
                                                       &ktd CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
-              &ktd N4             &ktd N5             &trans
+              &ktd LG(LS(LC(UP)))     &ktd LG(LS(LC(DOWN)))   &trans
               &ktd SPACE          &ktd ENTER          &ktd BACKSPACE
             >;
         };
@@ -97,7 +97,7 @@
                                                       &ktd CAPS
               // right thumb cluster (3 rows x 3), left to right as on the board
               &trans              &trans              &trans
-              &ktd N4             &ktd N5             &trans
+              &ktd LG(LS(LC(UP)))     &ktd LG(LS(LC(DOWN)))   &trans
               &ktd SPACE          &ktd ENTER          &ktd BACKSPACE
             >;
         };
